@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 连接解析的数据库的类型 url userId 和 password -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/seckill"
+                        userId="root"
+                        password="520827">
+        </jdbcConnection>
+        <!--<javaTypeResolver >-->
+        <!--<property name="forceBigDecimals" value="false" />-->
+        <!--</javaTypeResolver>-->
+
+        <!-- 生成 model dataObject dto 存放位置 -->
+        <javaModelGenerator targetPackage="com.seckill.project.dataobject" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的存放位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成 dao类存放位置 -->
+        <!-- type="ANNOTATEDMAPPER", 生成 JavaModel 和基于注解的 Mapper 对象
+             type="MIXEDMAPPER", 生成基于注解的 Java Model 和对应的 Mapper 对象
+             type="XMLMAPPER", 生成SQLMap XML 文件和独立的 Mapper 接口
+         -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.seckill.project.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 生成对应表及表名 -->
+        <!--   <table tableName="user_info" domainObjectName="UserDO" enableCountByExample="false"
+                  enableUpdateByExample="false" enableDeleteByExample="false"
+                  enableSelectByExample="false" selectByExampleQueryId="false">
+           </table>
+           <table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"
+                  enableUpdateByExample="false" enableDeleteByExample="false"
+                  enableSelectByExample="false" selectByExampleQueryId="false">
+           </table> -->
+        <!--<table tableName="item" domainObjectName="ItemDO" enableCountByExample="false"-->
+        <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="item_stock" domainObjectName="ItemStockDO" enableCountByExample="false"-->
+        <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="order_info" domainObjectName="OrderDO" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <table tableName="sequence_info" domainObjectName="SequenceDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <!--<table schema="user_info" tableName="ALLTYPES" domainObjectName="Customer" >-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+        <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+        <!--<ignoreColumn column="FRED" />-->
+        <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>
